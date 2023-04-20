@@ -1,0 +1,9 @@
+// const welcome = function(){
+//     console.log('Welcome to my application. I am Sanket and a part of FunctionUp Technetium cohort')
+// }
+// module.exports.welcome = welcome
+
+function welcome(name){ 
+    console.log(`Welcome to my application. I am ${name} and a part of FunctionUp Technetium cohort`)    
+}
+module.exports.welcome = welcome
