@@ -28,19 +28,31 @@ let players =
     },
 ]
 
-router.post('/players-list', function (req, res) {
-   let player = players.find(x => x.name !== req.body.name)
-   if (player){
-      players.push(req.body)
-   }
-   for(let i =0; i< players.length; i++){
-      let temp = players[i]
-      if(temp.name !== req.body.name){
-         res.send( {data: players, status:true})
+// router.post('/players-list', function (req, res) {
+//    let player = players.find(x => x.name !== req.body.name)
+//    if (player){
+//       players.push(req.body)
+//    }
+//    for(let i =0; i< players.length; i++){
+//       let temp = players[i]
+//       if(temp.name !== req.body.name){
+//          res.send( {data: players, status:true})
+//       }
+//       players.push(req.body)
+//    }    
+// });
+router.post('/players', function (req, res) {
+      for (let i=0; i< players.length;i++){
+         const playerName = req.body.name
+         if(players[i].name === playerName){
+            return res.send( {message: "Name already exist", status: false})
+         }
       }
-      players.push(req.body)
-   }
-    
-    
+      const playerData = req.body
+      players.push(playerData)
+      console.log(playerData)
+      res.send( {data: players, status: true})
 });
+
+
 module.exports = router;
