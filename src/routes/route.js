@@ -29,8 +29,18 @@ let players =
 ]
 
 router.post('/players-list', function (req, res) {
-    let player = req.body.element
-    players.push(player)
-    res.send( {data : players , status: true})
+   let player = players.find(x => x.name !== req.body.name)
+   if (player){
+      players.push(req.body)
+   }
+   for(let i =0; i< players.length; i++){
+      let temp = players[i]
+      if(temp.name !== req.body.name){
+         res.send( {data: players, status:true})
+      }
+      players.push(req.body)
+   }
+    
+    
 });
 module.exports = router;
