@@ -34,7 +34,4 @@ let persons= [
    const finalArr = arr.map(x => x.votingStatus=true)
    res.send( arr)
  })
-
-
-
 module.exports = router;
