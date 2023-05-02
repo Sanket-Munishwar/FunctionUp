@@ -38,4 +38,24 @@ router.get("/dateManipulations", function (req, res) {
     res.send({ msg: "all good"})
 })
 
+// assignment 
+
+
+const AuthorController = require('../controllers/authorController')
+const NewBookController = require('../controllers/newBooksController')
+
+router.post('/createAuthor',AuthorController.createAuthor )
+
+router.post('/createNewBook', NewBookController.createNewBook)
+
+router.get('/getauthorbyId', AuthorController.getauthorbyId)
+
+router.get('/updateValue', AuthorController.updateValue)
+
+router.get('/valueInBetween',AuthorController.valueInBetween)
+
+
+
+
+
 module.exports = router;
